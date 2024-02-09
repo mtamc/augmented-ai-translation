@@ -1,0 +1,10 @@
+{
+  "linesPerChunk": 10,
+  "alreadyTranslatedHistory": "Consider this passage from an English-translated Japanese novel:\n<passage>\n{{passage}}\n</passage>\n\nHere is the continuation of this passage, in its original Japanese version:\n<continuation>\n{{continuation}}</continuation>",
+  "fullJpHistory": "Consider the following passage from a Japanese novel:\n<passage>\n{{fulljp}}\n</passage>",
+  "ctxAndTask": "Here is some context information:\n<context>\n{{context}}\n</context>\n\nHere is your task:\n<task>{{task}}\n</task>",
+  "missingCtx": "If I were to ask you to translate the continuation inside the XML tag to English, and you believe you have sufficient context and canonized name transliterations/translations, then respond only \"OK\". If you are lacking some context to decently translate this passage to English, please write, in English, a list of questions for me to answer.  For each question, follow with a Japanese passage that made you ask this question and explain where the ambiguity is.",
+  "missingTransliterations": "Make a list of all the Japanese (kanji/kana) names (of people, locations, companies, etc) and titles present in the passage and not already in the context XML tag, and your suggested transliteration/translation of them.",
+  "translation": "Translate the Japanese continuation inside the XML tag to English. The \"　　　　　＊　　　　　＊\" separator must be transformed into \"---\". Never add a separator unless it exists in the Japanese text. Always refer to the information inside the context XML tag for how to write names and for story background. Use plain, easy to understand English.",
+  "tlPrefill": "Here is my plain English translation of the continuation in the XML tag,and referring to the context XML tag for transliteration reference and background:\n<translation>\n"
+}

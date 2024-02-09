@@ -1,0 +1,127 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           augmented-ai-translation
+version:        0.1.0.0
+description:    Please see the README on GitHub at <url_here>
+homepage:       https://github.com/mtamc/augmented-ai-translation#readme
+bug-reports:    https://github.com/mtamc/augmented-ai-translation/issues
+author:         mtamc
+maintainer:     mtamc
+copyright:      2023 mtamc
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/mtamc/augmented-ai-translation
+
+library
+  exposed-modules:
+      Claude
+      Main
+      Prelude
+      Secrets
+      Translation
+      Wordpress
+  other-modules:
+      Paths_augmented_ai_translation
+  hs-source-dirs:
+      src
+  default-extensions:
+      OverloadedStrings
+      OverloadedLabels
+      UnicodeSyntax
+      NoFieldSelectors
+      LambdaCase
+      DuplicateRecordFields
+      ViewPatterns
+      BlockArguments
+      DataKinds
+      TypeOperators
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      HTTP
+    , aeson
+    , base-noprelude
+    , base-unicode-symbols
+    , containers
+    , data-default
+    , directory
+    , extra
+    , filepath
+    , generic-lens
+    , http-client
+    , http-conduit
+    , http-types
+    , lens
+    , megaparsec
+    , monad-loops
+    , mtl
+    , process
+    , relude
+    , safe-exceptions
+    , template-haskell
+    , text
+    , time
+    , unix-compat
+  default-language: GHC2021
+
+executable template-exe
+  main-is: Main.hs
+  other-modules:
+      Claude
+      Prelude
+      Secrets
+      Translation
+      Wordpress
+      Paths_augmented_ai_translation
+  hs-source-dirs:
+      src
+  default-extensions:
+      OverloadedStrings
+      OverloadedLabels
+      UnicodeSyntax
+      NoFieldSelectors
+      LambdaCase
+      DuplicateRecordFields
+      ViewPatterns
+      BlockArguments
+      DataKinds
+      TypeOperators
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -fwrite-ide-info -hiedir=.hie
+  build-depends:
+      HTTP
+    , aeson
+    , base-noprelude
+    , base-unicode-symbols
+    , containers
+    , data-default
+    , directory
+    , extra
+    , filepath
+    , generic-lens
+    , http-client
+    , http-conduit
+    , http-types
+    , lens
+    , megaparsec
+    , monad-loops
+    , mtl
+    , process
+    , relude
+    , safe-exceptions
+    , template
+    , template-haskell
+    , text
+    , time
+    , unix-compat
+  default-language: GHC2021

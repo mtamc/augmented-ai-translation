@@ -1,0 +1,12 @@
+{
+  "taskType": "AskIfContextSufficient",
+  "chapter": 281,
+  "context": [
+    "Contextual information you wish to be present in every prompt"
+  ],
+  "glossary": {
+    "リトルシルバー": "Little Silver (Kaoru's company)",
+    "地球の神様": "Earth God Modoki"
+  }
+}
+
