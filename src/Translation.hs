@@ -171,10 +171,10 @@ data TaskType = MC1 | MC2 | MC3 | AskIfContextSufficient | Translate | H | P der
   )
 instance Show TaskType where
   show = \case
-    MC1 → "Step 1/3 - Asking if the AI needs more information, giving it the option to say \"OK\" if it has enough.)"
+    MC1 → "Step 1/3 - Asking if the AI needs more information, giving it the option to say \"OK\" if it has enough."
     MC2 → "Step 2/3 - Asking if the AI needs more information, *forcing the AI to say at least one suggestion*. Feel free to ignore those suggestions if they seem overkill!"
     MC3 → "Step 3/3 - Asking for missing canonizations/transliterations in the glossary, *forcing the AI to say at least one suggestion*. Again, feel free to ignore those suggestions if they seem overkill!"
-    AskIfContextSufficient → "AskIfContextSufficient (All three tasks querying for missing information)"
+    AskIfContextSufficient → "AskIfContextSufficient - All three tasks querying for missing information. This can take a while, so wait a few minutes."
     Translate → "Translate (Translate chunk by chunk)"
     H → "H (Generate HTML)"
     P → "P (Publish)"

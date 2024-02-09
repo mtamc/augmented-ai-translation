@@ -4,18 +4,24 @@ This is my personal setup to translate novel chapters from Japanese to English u
 
 ## Augmentations
 
-- Chapters are translated chunk-by-chunk, solving the issue of Claude often skipping random sections of text when asked to translate very long documents
+- Chapters are translated chunk-by-chunk, solving the issue of Claude often skipping random sections of text when asked to translate very long documents.
 - With each chunk, the prompt is filled with translated text from previous chapters/previously translated chunks, ensuring the AI has access to contextual information.
 - With each chunk, the prompt is filled with canonized transliterations and contextual information taken from a user-maintained glossary. For example, if the current chunk contains the name "ムーノ" (Muno), the prompt will contain the information: "ムーノ = Muno (former branch manager of the Relinas Trade Company)"
     - This ensures Japanese names are translated into consistent transliterations across chapters, and that chapters are translated with access to any necessary context.
+- "Prefilling" and output postprocessing is used to extract just the translation from the outputs, with no preface
 - Before translating each chapter, the AI is asked if the user-maintained glossary contains enough contextual information to produce an accurate translation.
 - A text file containing the untranslated AND translated version of each chunk is produced for easy human review.
 - Each prompt-completion pair used is archived by the application for review.
 
+## Example
+
+A few chapters of the free Japanese web novel "I Shall Survive Using Potions" were translated with this app on [https://ainoveltls.wordpress.com](https://ainoveltls.wordpress.com).
 
 ## Getting started
 
-- [TODO: binary download instructions]
+- Clone/download this repository
+- If you don't want to compile, then [download the appropriate binary for your OS](https://github.com/mtamc/augmented-ai-translation/releases) and put it at the repository's root
+    - You'll also have to run the command `chmod +x ./{BINARY FILENAME HERE}`
 - In the `./playground/` directory, copy `secrets.example.json` as `secrets.json` and put your Anthropic key in it.
 - Save Japanese chapter texts to `./playground/raws/` using the naming scheme `1.txt`, `2.txt`, etc.
 - In the `./playground/` directory, copy `task.example.json` as `task.json`. Set your desired chapter number in the `chapter` field, write down the contextual information which you wish to be present in every prompt in the `context` array, and optionally write down some `glossary` entries.

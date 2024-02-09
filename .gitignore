@@ -9,3 +9,4 @@ playground/raws/*
 playground/translations/*
 playground/secrets.json
 playground/task.json
+dist/

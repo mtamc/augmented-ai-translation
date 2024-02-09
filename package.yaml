@@ -20,22 +20,18 @@ dependencies:
 - lens
 - generic-lens
 - mtl
-- template-haskell
-- data-default
 - safe-exceptions
-- directory
-- filepath
 - aeson
 - process
 - http-conduit
 - http-types
-- unix-compat
 - extra
 - http-client
 - time
 - megaparsec
 - HTTP
-- monad-loops
+- filepath
+- os-string
 
 language: GHC2021
 
@@ -62,12 +58,13 @@ ghc-options:
 - -Wmissing-home-modules
 - -Wpartial-fields
 - -Wredundant-constraints
+- -Wunused-packages
 
 library:
   source-dirs: src
 
 executables:
-  template-exe:
+  augmented-ai-translation-exe:
     main:                Main.hs
     source-dirs:         src
     ghc-options:
@@ -77,4 +74,4 @@ executables:
     - -fwrite-ide-info
     - -hiedir=.hie
     dependencies:
-    - template
+    - augmented-ai-translation

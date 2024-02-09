@@ -46,15 +46,13 @@ library
       DataKinds
       TypeOperators
       TypeFamilies
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wunused-packages
   build-depends:
       HTTP
     , aeson
     , base-noprelude
     , base-unicode-symbols
     , containers
-    , data-default
-    , directory
     , extra
     , filepath
     , generic-lens
@@ -63,18 +61,16 @@ library
     , http-types
     , lens
     , megaparsec
-    , monad-loops
     , mtl
+    , os-string
     , process
     , relude
     , safe-exceptions
-    , template-haskell
     , text
     , time
-    , unix-compat
   default-language: GHC2021
 
-executable template-exe
+executable augmented-ai-translation-exe
   main-is: Main.hs
   other-modules:
       Claude
@@ -97,15 +93,14 @@ executable template-exe
       DataKinds
       TypeOperators
       TypeFamilies
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -fwrite-ide-info -hiedir=.hie
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wunused-packages -threaded -rtsopts -with-rtsopts=-N -fwrite-ide-info -hiedir=.hie
   build-depends:
       HTTP
     , aeson
+    , augmented-ai-translation
     , base-noprelude
     , base-unicode-symbols
     , containers
-    , data-default
-    , directory
     , extra
     , filepath
     , generic-lens
@@ -114,14 +109,11 @@ executable template-exe
     , http-types
     , lens
     , megaparsec
-    , monad-loops
     , mtl
+    , os-string
     , process
     , relude
     , safe-exceptions
-    , template
-    , template-haskell
     , text
     , time
-    , unix-compat
   default-language: GHC2021
