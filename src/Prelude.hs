@@ -15,6 +15,7 @@ module Prelude
   , getStdOut
   , justIf
   , positJust
+  , writeFileText
   , (≪)
   ) where
 
@@ -29,9 +30,12 @@ import Data.Generics.Labels   ()
 import Data.List.Unicode
 import Data.Monoid.Unicode
 import Data.Ord.Unicode
+import Data.Text              qualified as Text
 import GHC.IO                 (unsafePerformIO)
-import Relude
+import GHC.IO.Encoding        (utf8)
+import Relude                 hiding (writeFileText)
 import System.Exit            (ExitCode (ExitFailure, ExitSuccess))
+import System.IO              (hPutStr, hSetEncoding)
 import System.Process         (readProcessWithExitCode)
 
 ----------------------------------------------------------------------------------------------------
@@ -65,3 +69,8 @@ getStdOut process args = unsafePerformIO do
   case exitStatus of
     ExitSuccess   → pure $ toText out
     ExitFailure _ → error ("failed to run: " ⊕ process ⊕ " " ⊕ show args)
+
+writeFileText ∷ FilePath → Text → IO ()
+writeFileText path text = withFile path WriteMode $ \handle → do
+  hSetEncoding handle utf8
+  hPutStr handle (Text.unpack text)

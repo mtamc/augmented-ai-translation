@@ -52,6 +52,7 @@ library
     , aeson
     , base-noprelude
     , base-unicode-symbols
+    , code-page
     , containers
     , extra
     , filepath
@@ -100,6 +101,7 @@ executable augmented-ai-translation-exe
     , augmented-ai-translation
     , base-noprelude
     , base-unicode-symbols
+    , code-page
     , containers
     , extra
     , filepath
