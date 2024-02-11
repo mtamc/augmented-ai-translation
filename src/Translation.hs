@@ -13,6 +13,7 @@ import Data.Text                  qualified as T
 import Data.Time.Clock            (diffUTCTime, getCurrentTime)
 import GHC.IO                     (unsafePerformIO)
 import Prelude                    hiding (many)
+import System.Directory           (doesFileExist)
 import Text.Megaparsec            (Parsec, anySingle, many, manyTill, parse)
 import Text.Megaparsec.Char       (space, string)
 import Text.Megaparsec.Char.Lexer qualified as L
@@ -38,7 +39,12 @@ chunkLineCount = (^. #linesPerChunk) $ unsafePerformIO loadCfg
 promptDataFromTask ∷ Task → IO PromptData
 promptDataFromTask (Task { chapter, context, glossary }) = do
   rawLines        ← neLines <$> loadRaw chapter
-  previousChLines ← neLines <$> loadTranslation (chapter - 1)
+  previousChLines ← do
+    previousTlExists ← doesTranslationExist (chapter - 1)
+    if previousTlExists then
+      neLines <$> loadTranslation (chapter - 1)
+    else
+      pure []
   pure PromptData
     { context                 = unlines context
     , glossary                = glossary
@@ -320,6 +326,9 @@ loadCfg = decodeFile "./playground/config.json"
 
 loadRaw ∷ Int → IO Text
 loadRaw chapter = decodeUtf8 <$> readFileBS ("./playground/raws/" ⊕ show chapter ⊕ ".txt")
+
+doesTranslationExist ∷ Int → IO Bool
+doesTranslationExist chapter = doesFileExist ("./playground/translations/" ⊕ show chapter ⊕ ".txt")
 
 loadTranslation ∷ Int → IO Text
 loadTranslation chapter = do

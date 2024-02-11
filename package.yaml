@@ -33,6 +33,7 @@ dependencies:
 - filepath
 - os-string
 - code-page
+- directory
 
 language: GHC2021
 
