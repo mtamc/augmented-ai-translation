@@ -21,11 +21,11 @@ A few chapters of the free Japanese web novel "I Shall Survive Using Potions" we
 
 - Clone/download this repository
 - If you don't want to compile, then [download the appropriate binary for your OS](https://github.com/mtamc/augmented-ai-translation/releases) and put it at the repository's root
-    - You'll also have to run the command `chmod +x ./{BINARY FILENAME HERE}`
+    - On Linux/macOS, you'll also have to run the command `chmod +x ./{BINARY FILENAME HERE}`
 - In the `./playground/` directory, copy `secrets.example.json` as `secrets.json` and put your Anthropic key in it.
 - Save Japanese chapter texts to `./playground/raws/` using the naming scheme `1.txt`, `2.txt`, etc.
 - In the `./playground/` directory, copy `task.example.json` as `task.json`. Set your desired chapter number in the `chapter` field, write down the contextual information which you wish to be present in every prompt in the `context` array, and optionally write down some `glossary` entries.
-- Ensure the `taskType` property in `task.json` is set to "AskIfContextSufficient", then run this program in a terminal. The output will be something like the following:
+- Ensure the `taskType` property in `task.json` is set to "AskIfContextSufficient", then run this program in a terminal (see [instructions on the release page](https://github.com/mtamc/augmented-ai-translation/releases) ). The output will be something like the following:
     ```
     Running AskIfContextSufficient (All three tasks querying for missing information)
     --------
