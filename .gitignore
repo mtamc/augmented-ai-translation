@@ -5,8 +5,11 @@ dist-newstyle/
 .hie/
 config.dhall
 playground/prompts/*
+!playground/prompts/prompts_will_be_saved_here.txt
 playground/raws/*
+!playground/raws/put_untranslated_txts_here.txt
 playground/translations/*
+!playground/translations/translations_will_be_saved_here.txt
 playground/secrets.json
 playground/task.json
 dist/
